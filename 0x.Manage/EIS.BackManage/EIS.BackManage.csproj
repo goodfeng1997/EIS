@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AvaloniaResource Include="Assets\**"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\01.Infrastructure\EIS.Infrastructure\EIS.Infrastructure.csproj" />
+      <ProjectReference Include="..\..\01.Infrastructure\EIS.Theme\EIS.Theme.csproj" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DocumentationFile>..\..\.swagger\EIS.Auth.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="IdentityServer4" Version="4.1.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\01.Infrastructure\EIS.Core\EIS.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="appsettings.Development.json">
+      <DependentUpon>appsettings.json</DependentUpon>
+    </Content>
+    <Content Remove="logs\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="logs\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="logs\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="logs\**" />
+  </ItemGroup>
+</Project>

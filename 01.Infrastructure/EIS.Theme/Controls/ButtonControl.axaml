@@ -1,0 +1,474 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:EIS.Theme.Converters"
+                    xmlns:extensions="clr-namespace:EIS.Theme.Extensions"
+                    xmlns:userControls="clr-namespace:EIS.Theme.Controls.UserControls">
+    <ControlTheme x:Key="GlobalButtonStyle" TargetType="Button">
+        <Setter Property="BorderThickness" Value="1.2" />
+        <Setter Property="BorderBrush" Value="{DynamicResource GlobalMediumBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource SmallCornerRadius}" />
+        <Setter Property="Background" Value="{DynamicResource GlobalBackground}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="Padding" Value="20,8" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BoxShadow="{DynamicResource GlobalLowShadow}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        TextElement.Foreground="{TemplateBinding Foreground}">
+                    <Border.Resources>
+                        <converters:BoolToWidthProgressConverter x:Key="WidthConverter" />
+                    </Border.Resources>
+                    <StackPanel HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Orientation="Horizontal">
+                        <Viewbox Width="{TemplateBinding extensions:ButtonExtension.ShowProgress, Converter={StaticResource WidthConverter}}" Height="18">
+                            <Viewbox.Transitions>
+                                <Transitions>
+                                    <DoubleTransition Property="Width" Duration="0:0:0.3" />
+                                </Transitions>
+                            </Viewbox.Transitions>
+                            <userControls:Loading Foreground="{DynamicResource GlobalText}" />
+                        </Viewbox>
+                        <ContentPresenter HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          FontFamily="avares://EIS.Theme/Options/Font#Quicksand"
+                                          FontSize="{TemplateBinding FontSize}"
+                                          FontWeight="DemiBold"
+                                          RecognizesAccessKey="True" />
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.35" />
+            </Transitions>
+        </Setter>
+
+        <!--  Nested Selectors For Basic Button  -->
+        <Style Selector="^ /template/ TextBlock">
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontWeight" Value="DemiBold" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="^ /template/ userControls|Loading">
+          <Setter Property="Foreground" Value="{DynamicResource GlobalPrimaryColor}" />
+        </Style>
+        
+        <Style Selector="^ /template/ Border">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="BorderBrush" Duration="0:0:0.3" />
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="^ /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource GlobalText}" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <!--  Events For Basic Button  -->
+        <Style Selector="^:pointerover">
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource GlobalPrimaryColor}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource GlobalPrimaryColor}" />
+            </Style>
+
+            <Style Selector="^ /template/ Border">
+                <Setter Property="BorderBrush" Value="{DynamicResource GlobalPrimaryColor}" />
+            </Style>
+        </Style>
+        <Style Selector="^:pressed">
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource GlobalPrimaryColor}" />
+            </Style>
+            <Style Selector="^ /template/ Border">
+                <Setter Property="Background" Value="{DynamicResource GlobalCardBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource GlobalPrimaryColor}" />
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="0.97" ScaleY="0.97" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource GlobalPrimaryColor}" />
+            </Style>
+        </Style>
+        
+        <Style Selector="^.NoPressedAnimation">
+        <Style Selector="^:pressed">
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource GlobalPrimaryColor}" />
+            </Style>
+            <Style Selector="^ /template/ Border">
+                <Setter Property="Background" Value="{DynamicResource GlobalCardBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource GlobalPrimaryColor}" />
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource GlobalPrimaryColor}" />
+            </Style>
+        </Style>
+            </Style>
+
+        <!--  Classes  -->
+        <Style Selector="^.Accent">
+            <Style Selector="^:pointerover">
+                <Style Selector="^ /template/ TextBlock">
+                    <Setter Property="Foreground" Value="{DynamicResource GlobalAccentColor75}" />
+                </Style>
+                <Style Selector="^ /template/ ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource GlobalAccentColor75}" />
+                </Style>
+
+                <Style Selector="^ /template/ Border">
+                    <Setter Property="BorderBrush" Value="{DynamicResource GlobalAccentColor}" />
+                </Style>
+            </Style>
+            <Style Selector="^:pressed">
+                <Style Selector="^ /template/ TextBlock">
+                    <Setter Property="Foreground" Value="{DynamicResource GlobalAccentColor}" />
+                </Style>
+                <Style Selector="^ /template/ Border">
+                    <Setter Property="Background" Value="{DynamicResource GlobalCardBackground}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource GlobalAccentColor}" />
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.97" ScaleY="0.97" />
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                <Style Selector="^ /template/ ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource GlobalAccentColor}" />
+                </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^.Basic">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Padding" Value="11,8" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="Background" Value="Transparent" />
+            <!--  Nested Selectors  -->
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="48%,0%" EndPoint="50%,100%">
+                            <GradientStop Offset="0.8" Color="{DynamicResource GlobalPrimaryColor}" />
+                            <GradientStop Offset="1" Color="{DynamicResource GlobalPrimaryColor}" />
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ userControls|Loading">
+                <Setter Property="Foreground" Value="{DynamicResource GlobalPrimaryColor}" />
+            </Style>
+            <Style Selector="^ /template/ Border">
+                <Setter Property="BoxShadow" Value="0 0 0 0 Transparent" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource GlobalPrimaryColor}" />
+            </Style>
+            <!--  Events  -->
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="Transparent" />
+                <Style Selector="^ /template/ Border">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.03" ScaleY="1.03" />
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Style>
+            <Style Selector="^:pressed /template/ Border">
+                <Setter Property="Background" Value="Transparent" />
+            </Style>
+            <!--  Color Variants  -->
+            <Style Selector="^.Accent">
+                <Style Selector="^ /template/ TextBlock">
+                    <Setter Property="Foreground">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="48%,0%" EndPoint="50%,100%">
+                                <GradientStop Offset="0.8" Color="{DynamicResource GlobalAccentColor}" />
+                                <GradientStop Offset="1" Color="{DynamicResource GlobalAccentColor}" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                <Style Selector="^ /template/ userControls|Loading">
+                    <Setter Property="Foreground" Value="{DynamicResource GlobalAccentColor}" />
+                </Style>
+                <Style Selector="^ /template/ ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource GlobalAccentColor}" />
+                </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^.Void">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <!--  Nested Selectors  -->
+            <Style Selector="^ /template/ Border">
+                <Setter Property="BoxShadow" Value="0 0 0 0 Transparent" />
+            </Style>
+            <!--  Events  -->
+            <Style Selector="^:pointerover /template/ Border">
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="1.03" ScaleY="1.03" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Style>
+
+        <Style Selector="^.Flat">
+            <Setter Property="Padding" Value="20,8,20,8" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="{DynamicResource GlobalPrimaryColor}" />
+            <Setter Property="BorderBrush" Value="#2948c5" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.2" />
+                </Transitions>
+            </Setter>
+            <!--  Nested Selectors  -->
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+            
+            <Style Selector="^ /template/ userControls|Loading">
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter">
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+            <Style Selector="^ /template/ Border">
+                <Setter Property="BoxShadow" Value="{DynamicResource GlobalLowShadow}" />
+            </Style>
+            <!--  Events  -->
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{DynamicResource GlobalPrimaryColor}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border">
+                <Setter Property="Background" Value="{DynamicResource GlobalPrimaryColor}" />
+            </Style>
+            <!--  Color Variants  -->
+            <Style Selector="^.Accent">
+                <Setter Property="Background" Value="{DynamicResource GlobalAccentColor75}" />
+                <Style Selector="^:pointerover">
+                    <Setter Property="Background" Value="{DynamicResource GlobalAccentColor}" />
+                </Style>
+                <Style Selector="^:pressed /template/ Border">
+                    <Setter Property="Background" Value="{DynamicResource GlobalAccentColor}" />
+                </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^.Outlined">
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlobalPrimaryColor}" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.3" />
+                    <BrushTransition Property="BorderBrush" Duration="0:0:0.3" />
+                </Transitions>
+            </Setter>
+            <!--  Nested Selectors  -->
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource GlobalPrimaryColor}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            
+            <Style Selector="^ /template/ userControls|Loading">
+                <Setter Property="Foreground" Value="{DynamicResource GlobalPrimaryColor}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource GlobalPrimaryColor}" />
+                <Setter Property="Transitions">
+                    <Transitions>
+                        <BrushTransition Property="Foreground" Duration="0:0:0.3" />
+                    </Transitions>
+                </Setter>
+            </Style>
+            <!--  Events  -->
+            <Style Selector="^:pointerover">
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="Background" Value="{DynamicResource GlobalPrimaryColor}" />
+                <Style Selector="^ /template/ ContentPresenter">
+                    <Setter Property="Foreground" Value="White" />
+                </Style>
+                <Style Selector="^ /template/ TextBlock">
+                    <Setter Property="Foreground" Value="White" />
+                </Style>
+            </Style>
+            <Style Selector="^:pressed /template/ Border">
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="Background" Value="{DynamicResource GlobalPrimaryColor}" />
+            </Style>
+            <!--  Color Variants  -->
+            <Style Selector="^.Accent">
+                <Setter Property="BorderBrush" Value="{DynamicResource GlobalAccentColor}" />
+                <Style Selector="^ /template/ TextBlock">
+                    <Setter Property="Foreground" Value="{DynamicResource GlobalAccentColor}" />
+                </Style>
+                <Style Selector="^ /template/ userControls|Loading">
+                    <Setter Property="Foreground" Value="{DynamicResource GlobalAccentColor}" />
+                </Style>
+                <Style Selector="^ /template/ ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource GlobalAccentColor}" />
+                </Style>
+                <Style Selector="^:pointerover">
+                    <Setter Property="Background" Value="{DynamicResource GlobalAccentColor}" />
+                </Style>
+                <Style Selector="^:pressed /template/ Border">
+                    <Setter Property="Background" Value="{DynamicResource GlobalAccentColor}" />
+                </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^.Success">
+            <Setter Property="Background" Value="#cdf2ca" />
+            <Setter Property="BorderBrush" Value="#b2e1ae" />
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="#13831c" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Border">
+                <Setter Property="Background" Value="#d7f5db" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border">
+                <Setter Property="Background" Value="#d7f5db" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.Danger">
+            <Setter Property="Background" Value="#f2caca" />
+            <Setter Property="BorderBrush" Value="#e4b5b5" />
+            <Style Selector="^ /template/ TextBlock">
+                <Setter Property="Foreground" Value="#831313" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Border">
+                <Setter Property="Background" Value="#f5d7d7" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border">
+                <Setter Property="Background" Value="#f5d7d7" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.Rounded">
+            <Setter Property="CornerRadius" Value="100" />
+        </Style>
+
+        <Style Selector="^.Card">
+            <Setter Property="Padding" Value="20" />
+            <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+            <Setter Property="BorderThickness" Value="1.5" />
+            <Setter Property="BorderBrush" Value="{DynamicResource GlobalLightBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource GlobalCardBackground}" />
+            <Setter Property="Margin" Value="7" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Margin="7"
+                                      Padding="{TemplateBinding Padding}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Background="{TemplateBinding Background}"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      CornerRadius="{TemplateBinding CornerRadius}"
+                                      RecognizesAccessKey="True"
+                                      TextElement.Foreground="{TemplateBinding Foreground}" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^.WindowControlsButton">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="CornerRadius" Value="20" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Width" Value="25" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Background" Value="{DynamicResource GlobalPrimaryColor0}" />
+            <Setter Property="Padding" Value="0" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{DynamicResource GlobalPrimaryColor25}" />
+            </Style>
+            <Style Selector="^.Close">
+                <Setter Property="Background" Value="{DynamicResource GlobalAccentColor0}" />
+                <Style Selector="^:pointerover">
+                    <Setter Property="Background" Value="{DynamicResource GlobalAccentColor25}" />
+                </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^.Hyperlink">
+            <Setter Property="Foreground" Value="{DynamicResource GlobalPrimaryColor}" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <ContentPresenter Content="{TemplateBinding Content}">
+                        <ContentPresenter.Styles>
+                            <Style Selector="TextBlock">
+                                <Setter Property="Foreground" Value="{DynamicResource GlobalPrimaryColor}" />
+                                <Setter Property="FontSize" Value="{TemplateBinding FontSize}" />
+                                <Setter Property="TextDecorations" Value="Underline" />
+                                <Setter Property="Transitions">
+                                    <Transitions>
+                                        <BrushTransition Property="Foreground" Duration="{DynamicResource ShortAnimationDuration}" />
+                                    </Transitions>
+                                </Setter>
+                            </Style>
+                        </ContentPresenter.Styles>
+                    </ContentPresenter>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^.Large">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Padding" Value="30,12" />
+            <Setter Property="CornerRadius" Value="9" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type Button}"
+                  BasedOn="{StaticResource GlobalButtonStyle}"
+                  TargetType="Button" />
+</ResourceDictionary>

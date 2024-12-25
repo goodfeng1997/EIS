@@ -1,0 +1,82 @@
+version: '3'
+services:
+  nacos1:
+    image: nacos/nacos-server:latest
+    hostname: nacos-server-1
+    container_name: nacos-server-1
+    environment:
+      MODE: cluster
+      NACOS_SERVERS: nacos-server-1:8848,nacos-server-2:8848,nacos-server-3:8848
+      PREFER_HOST_MODE: hostname
+      SPRING_DATASOURCE_PLATFORM: mysql
+      MYSQL_SERVICE_HOST: mysql
+      MYSQL_SERVICE_PORT: '3306'
+      MYSQL_SERVICE_DB_NAME: nacos_config
+      MYSQL_SERVICE_USER: root
+      MYSQL_SERVICE_PASSWORD: 123456
+      nacos.core.auth.system.username: nacos
+      nacos.core.auth.system.password: nacos
+    volumes:
+      - ./cluster-logs/nacos1:/home/nacos/logs
+      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
+    ports:
+      - "8848:8848"
+      - "8849:8849"
+      - "8850:8850"
+    networks:
+      - eis-net
+
+  nacos2:
+    image: nacos/nacos-server:latest
+    container_name: nacos-server-2
+    hostname: nacos-server-2
+    environment:
+      MODE: cluster
+      NACOS_SERVERS: nacos-server-1:8848,nacos-server-2:8848,nacos-server-3:8848
+      PREFER_HOST_MODE: hostname
+      SPRING_DATASOURCE_PLATFORM: mysql
+      MYSQL_SERVICE_HOST: mysql
+      MYSQL_SERVICE_PORT: '3306'
+      MYSQL_SERVICE_DB_NAME: nacos_config
+      MYSQL_SERVICE_USER: root
+      MYSQL_SERVICE_PASSWORD: 123456
+      nacos.core.auth.system.username: nacos
+      nacos.core.auth.system.password: nacos
+    volumes:
+      - ./cluster-logs/nacos2:/home/nacos/logs
+      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
+    ports:
+      - "8858:8848"
+      - "8859:8849"
+      - "8860:8850"
+    networks:
+      - eis-net
+
+  nacos3:
+    image: nacos/nacos-server:latest
+    container_name: nacos-server-3
+    hostname: nacos-server-3
+    environment:
+      MODE: cluster
+      NACOS_SERVERS: nacos-server-1:8848,nacos-server-2:8848,nacos-server-3:8848
+      PREFER_HOST_MODE: hostname
+      SPRING_DATASOURCE_PLATFORM: mysql
+      MYSQL_SERVICE_HOST: mysql
+      MYSQL_SERVICE_PORT: '3306'
+      MYSQL_SERVICE_DB_NAME: nacos_config
+      MYSQL_SERVICE_USER: root
+      MYSQL_SERVICE_PASSWORD: 123456
+      nacos.core.auth.system.username: nacos
+      nacos.core.auth.system.password: nacos
+    volumes:
+      - ./cluster-logs/nacos3:/home/nacos/logs
+      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
+    ports:
+      - "8868:8848"
+      - "8869:8849"
+      - "8870:8850"
+    networks:
+      - eis-net
+networks:
+  eis-net:
+    external: true

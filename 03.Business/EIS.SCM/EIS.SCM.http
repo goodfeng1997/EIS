@@ -1,0 +1,6 @@
+@EIS.SCM_HostAddress = http://localhost:5285
+
+GET {{EIS.SCM_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

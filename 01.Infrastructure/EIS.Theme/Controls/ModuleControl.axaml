@@ -1,0 +1,24 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="using:System">
+    <Design.PreviewWith>
+        <Border Width="1000"
+                Height="500"
+                Padding="20">
+            <StackPanel VerticalAlignment="Center" Spacing="20">
+                <DatePicker Height="60" />
+                <DatePicker CornerRadius="10" />
+                <DatePicker IsEnabled="False" />
+                <DatePicker>
+                    <DataValidationErrors.Error>
+                        <sys:Exception>
+                            <x:Arguments>
+                                <x:String>Error</x:String>
+                            </x:Arguments>
+                        </sys:Exception>
+                    </DataValidationErrors.Error>
+                </DatePicker>
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+</ResourceDictionary>

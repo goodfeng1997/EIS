@@ -1,0 +1,41 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=netstandard">
+    <Color x:Key="GlobalBackground">Transparent</Color>
+    <Color x:Key="GlobalStrongBackground">#fafafa</Color>
+    <Color x:Key="GlobalLightBackground">Transparent</Color>
+    <Color x:Key="GlobalCardBackground">#fafafa</Color>
+    <Color x:Key="GlobalGlassCardBackground">White</Color>
+    <Color x:Key="GlobalGlassCardOpaqueBackground">#fcfcfc</Color>
+    <Color x:Key="GlobalControlTouchBackground">#FFFFFF</Color>
+    <Color x:Key="GlobalDialogBackground">Gray</Color>
+
+    <Color x:Key="GlobalBorderBrush">#ebebeb</Color>
+    <Color x:Key="GlobalControlBorderBrush">#cecece</Color>
+    <Color x:Key="GlobalMediumBorderBrush">#e2e2e2</Color>
+    <Color x:Key="GlobalLightBorderBrush">#f1f1f1</Color>
+    <Color x:Key="GlassBorderBrush">#e3e3e7</Color>
+
+    <Color x:Key="GlobalText">#222222</Color>
+    <Color x:Key="GlobalLowText">#555555</Color>
+    <Color x:Key="GlobalDisabledText">#ABABAB</Color>
+
+    <BoxShadows x:Key="GlobalLowShadow">0 0 3 0 #eaeaea</BoxShadows>
+    <BoxShadows x:Key="GlobalSwitchShadow">0 1 5 0 #aaaaaa</BoxShadows>
+    <BoxShadows x:Key="GlobalSmallPopupShadow">0 0 2 0 DimGray</BoxShadows>
+    <BoxShadows x:Key="GlobalPopupShadow">1 1 8 0 LightGray</BoxShadows>
+    <BoxShadows x:Key="GlobalBigPopupShadow">1 1 15 0 #dedede</BoxShadows>
+    
+    <LinearGradientBrush x:Key="PopupGradientBrush" StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Color="{DynamicResource GlobalAccentColor3}" Offset="0"></GradientStop>
+        <GradientStop Color="{DynamicResource GlobalPrimaryColor3}" Offset="1"></GradientStop>
+
+    </LinearGradientBrush>
+
+    <system:Boolean x:Key="IsDark">False</system:Boolean>
+    <system:Boolean x:Key="IsLight">True</system:Boolean>
+
+    <system:Double x:Key="GlassOpacity">0.45</system:Double>
+    <system:Double x:Key="GlassOpacityDark">0.5</system:Double>
+    <system:Double x:Key="GlassOpacityLight">0.8</system:Double>
+</ResourceDictionary>

@@ -1,0 +1,28 @@
+services:
+  elasticsearch:
+    image: exceptionless/elasticsearch:latest
+    container_name: elasticsearch
+    restart: always
+    privileged: true
+    environment:
+      cluster.name: "docker-cluster"
+      node.name: elasticsearch
+      discovery.type: single-node
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+      xpack.security.enabled: 'false'
+      xpack.ml.enabled: 'false'
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    networks:
+      - eis-net
+
+volumes:
+  esdata:
+    driver: local
+    
+networks:
+  eis-net:
+    external: true

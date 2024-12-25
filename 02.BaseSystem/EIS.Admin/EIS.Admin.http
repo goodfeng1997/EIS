@@ -1,0 +1,6 @@
+@EIS.Admin_HostAddress = http://localhost:5172
+
+GET {{EIS.Admin_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

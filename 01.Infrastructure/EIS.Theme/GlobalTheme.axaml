@@ -1,0 +1,88 @@
+<Styles x:Class="EIS.Theme.GlobalTheme"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:system="clr-namespace:System;assembly=netstandard">
+
+    <StyleInclude Source="avares://EIS.Theme/Themes/Colors.axaml" />
+    
+    <SimpleTheme />
+    
+    <StyleInclude Source="avares://EIS.Theme/Styles/ListBoxStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/ListBoxItemStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/TextBoxStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/BorderStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/CheckBoxStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/ScrollBarStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/ScrollViewerStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/ComboBoxStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/ComboBoxItemStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/DataGridStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/NotificationStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/NotificationCardStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/ProgressBarStyle.axaml" />    
+    <StyleInclude Source="avares://EIS.Theme/Styles/RadioButtonStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/ScrollBarStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/ScrollViewerStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/SliderStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/TabControlStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/ToggleButtonStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/ToggleSwitchStyle.axaml" />
+    <StyleInclude Source="avares://EIS.Theme/Styles/TreeViewStyle.axaml" />
+    
+    <StyleInclude Source="avares://Avalonia.Controls.ColorPicker/Themes/Fluent/Fluent.xaml" />
+    
+    <Styles.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceInclude x:Key="Light" Source="../Themes/Light.axaml" />
+                <ResourceInclude x:Key="Dark" Source="../Themes/Dark.axaml" />
+            </ResourceDictionary.ThemeDictionaries>
+
+            <CornerRadius x:Key="SmallCornerRadius">7</CornerRadius>
+            <CornerRadius x:Key="MediumCornerRadius">15</CornerRadius>
+
+            <system:TimeSpan x:Key="LongAnimationDuration">0.5</system:TimeSpan>
+            <system:TimeSpan x:Key="MediumAnimationDuration">0.35</system:TimeSpan>
+            <system:TimeSpan x:Key="ShortAnimationDuration">0.2</system:TimeSpan>
+            <Easing x:Key="MenuEasing">CircularEaseOut</Easing>
+
+            <FontFamily x:Key="QuicksandFont">avares://EIS.Theme/Options/Font#Quicksand</FontFamily>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://EIS.Theme/Controls/TextBlockControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/ButtonControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/SideMenuControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/SideMenuItemControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/TransitioningContentControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/GlassCardControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/SplitViewControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/AutoCompleteBoxControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/ContentExpandControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/ContextMenuControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/DatePickerControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/DropDownButtonControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/ExpanderControl.axaml" />       
+                <ResourceInclude Source="avares://EIS.Theme/Controls/FlyoutPresenterControl.axaml" />       
+                <ResourceInclude Source="avares://EIS.Theme/Controls/InfoBadgeControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/InfoBarControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/MenuControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/MenuFlyoutPresenterControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/MenuItemControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/PathIconControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/SplitViewControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/StackPageControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/TabControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/TabItemControl.axaml" />
+
+                <ResourceInclude Source="avares://EIS.Theme/Controls/TimePickerControl.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/ToolTipControl.axaml" />
+                
+                <ResourceInclude Source="avares://EIS.Theme/Controls/ThemeToast.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/ThemeHost.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/ThemeWindow.axaml" />
+                <ResourceInclude Source="avares://EIS.Theme/Controls/ThemeDialog.axaml" />
+                <!-- <ResourceInclude Source="avares://EIS.Theme/Controls/ModuleControl.axaml" /> -->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Styles.Resources>
+</Styles>

@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>..\..\.swagger\EIS.Model.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FreeSql.Provider.PostgreSQL" Version="3.2.833" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EIS.Shared\EIS.Shared.csproj" />
+    </ItemGroup>
+
+</Project>

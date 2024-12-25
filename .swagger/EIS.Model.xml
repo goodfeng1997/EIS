@@ -1,0 +1,298 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EIS.Model</name>
+    </assembly>
+    <members>
+        <member name="T:EIS.Model.Base.ClientApi">
+            <summary>
+            客户端API
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.ClientApi.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.ClientApi.ClientId">
+            <summary>
+            客户端ID
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.ClientApi.ApiId">
+            <summary>
+            ApiId
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.ClientApi.ApiScope">
+            <summary>
+            api范畴
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.ClientApi.IsEnable">
+            <summary>
+            是否有效
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.ClientApi.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="T:EIS.Model.Base.EISApi">
+            <summary>
+            系统Api
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.EISApi.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.EISApi.ApiCode">
+            <summary>
+            Api编码
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.EISApi.ApiName">
+            <summary>
+            Api名称
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.EISApi.ApiDesc">
+            <summary>
+            Api描述
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.EISApi.ApiScope">
+            <summary>
+            Api范畴
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.EISApi.IsEnable">
+            <summary>
+            是否有效
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.EISApi.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="T:EIS.Model.Base.EISClient">
+            <summary>
+            客户端
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.EISClient.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.EISClient.ClientId">
+            <summary>
+            客户端ID
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.EISClient.ClientName">
+            <summary>
+            客户端名称
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.EISClient.ClientSecret">
+            <summary>
+            客户端密钥
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.EISClient.IsEnable">
+            <summary>
+            是否有效
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.EISClient.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="T:EIS.Model.Base.TenantAuthCode">
+            <summary>
+            租户授权码
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.TenantAuthCode.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.TenantAuthCode.AuthCode">
+            <summary>
+            授权码
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.TenantAuthCode.AuthType">
+            <summary>
+            授权类型
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.TenantAuthCode.AuthTenant">
+            <summary>
+            授权租户
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.TenantAuthCode.Validity">
+            <summary>
+            授权截止日期
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.TenantAuthCode.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.TenantAuthCode.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="T:EIS.Model.Base.TenantConfig">
+            <summary>
+            租户配置
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.TenantConfig.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.TenantConfig.TenantId">
+            <summary>
+            租户ID
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.TenantConfig.DbHost">
+            <summary>
+            数据库主机
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.TenantConfig.DbPort">
+            <summary>
+            数据库端口
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.TenantConfig.DbName">
+            <summary>
+            数据库名称
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.TenantConfig.DbUser">
+            <summary>
+            数据库名称
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.TenantConfig.DbPassword">
+            <summary>
+            数据库名称
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.TenantConfig.IsEnable">
+            <summary>
+            是否有效
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.TenantConfig.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="T:EIS.Model.Base.User">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.User.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.User.UserCode">
+            <summary>
+            用户编号
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.User.UserName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.User.UserType">
+            <summary>
+            用户类型
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.User.UserPassWord">
+            <summary>
+            用户密码
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.User.IsEnable">
+            <summary>
+            是否有效
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.User.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="T:EIS.Model.Base.UserClient">
+            <summary>
+            用户类型客户端
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.UserClient.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.UserClient.UserType">
+            <summary>
+            用户类型
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.UserClient.ClientId">
+            <summary>
+            客户端主键
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.UserClient.IsEnable">
+            <summary>
+            是否有效
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Base.UserClient.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="T:EIS.Model.Dto.LoginRequestParam">
+            <summary>
+            登录请求参数
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Dto.LoginRequestParam.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Dto.LoginRequestParam.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:EIS.Model.Dto.LoginRequestParam.TenantAuth">
+            <summary>
+            授权码
+            </summary>
+        </member>
+    </members>
+</doc>

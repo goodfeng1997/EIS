@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Modules\EIS.Administer.Base\EIS.Administer.Base.csproj" />
+    <ProjectReference Include="..\Modules\EIS.Administer.Setting\EIS.Administer.Setting.csproj" />
+    <ProjectReference Include="..\Modules\EIS.Administer.Tenant\EIS.Administer.Tenant.csproj" />
+  </ItemGroup>
+</Project>

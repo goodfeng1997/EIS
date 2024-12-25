@@ -1,0 +1,101 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:objectModel="clr-namespace:System.Collections.ObjectModel;assembly=System.ObjectModel"
+             xmlns:vm="clr-namespace:EIS.Theme.Pages.ViewModels"
+             xmlns:models="clr-namespace:EIS.Infrastructure.Models;assembly=EIS.Infrastructure"
+             xmlns:userControls="clr-namespace:EIS.Theme.Controls.UserControls"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="EIS.Theme.Pages.Views.ThemeView"
+             x:DataType="vm:ThemeViewModel">
+    <Design.DataContext>
+        <vm:ThemeViewModel />
+    </Design.DataContext>
+    <userControls:SettingsLayout Name="主题" HorizontalContentAlignment="Stretch">
+        <userControls:SettingsLayout.Items>
+            <objectModel:ObservableCollection x:TypeArguments="userControls:SettingsLayoutItem">
+                <userControls:SettingsLayoutItem Header="基础主题">
+                    <userControls:SettingsLayoutItem.Content>
+                        <StackPanel HorizontalAlignment="Center"
+                                    Orientation="Horizontal"
+                                    Spacing="20">
+                            <RadioButton Width="180"
+                                         Height="160"
+                                         Padding="0"
+                                         Classes="GigaChips"
+                                         GroupName="RadioBaseTheme"
+                                         IsChecked="{Binding IsLightTheme}">
+                                <Border Margin="-50"
+                                        Background="#fafafa"
+                                        CornerRadius="{DynamicResource MediumCornerRadius}">
+                                    <Grid>
+                                        <TextBlock Margin="42"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Bottom"
+                                                   FontWeight="DemiBold"
+                                                   Foreground="#555555"
+                                                   Text="亮" />
+                                    </Grid>
+                                </Border>
+                            </RadioButton>
+                            <RadioButton Width="180"
+                                         Height="160"
+                                         Classes="GigaChips"
+                                         GroupName="RadioBaseTheme"
+                                         IsChecked="{Binding !IsLightTheme}">
+                                <Border Margin="-50"
+                                        Background="#222222"
+                                        CornerRadius="{DynamicResource MediumCornerRadius}">
+                                    <Grid>
+                                        <TextBlock Margin="42"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Bottom"
+                                                   FontWeight="DemiBold"
+                                                   Foreground="#fafafa"
+                                                   Text="暗" />
+                                    </Grid>
+                                </Border>
+                            </RadioButton>
+                        </StackPanel>
+                    </userControls:SettingsLayoutItem.Content>
+                </userControls:SettingsLayoutItem>
+    
+                <userControls:SettingsLayoutItem Header="颜色主题">
+                    <userControls:SettingsLayoutItem.Content>
+                        <ItemsControl HorizontalAlignment="Center" ItemsSource="{Binding AvailableColors}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel HorizontalAlignment="Center"
+                                                Orientation="Horizontal"
+                                                Spacing="10" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="models:ColorThemeModel">
+                                    <RadioButton Width="50"
+                                                 Height="50"
+                                                 Classes="GigaChips"
+                                                 Command="{Binding $parent[ItemsControl].((vm:ThemeViewModel)DataContext).SwitchToColorThemeCommand}"
+                                                 CommandParameter="{Binding}"
+                                                 CornerRadius="50"
+                                                 GroupName="RadioColorTheme">
+                                        <Border Margin="-30"
+                                                Background="{Binding PrimaryBrush}"
+                                                CornerRadius="50" />
+                                    </RadioButton>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </userControls:SettingsLayoutItem.Content>
+                </userControls:SettingsLayoutItem>
+                
+                <userControls:SettingsLayoutItem Header="自定义主题">
+                    <userControls:SettingsLayoutItem.Content>
+                        <Button Classes="Outlined" Content="添加主题" Command="{Binding CreateCustomThemeCommand}"/>
+                    </userControls:SettingsLayoutItem.Content>
+                </userControls:SettingsLayoutItem>
+            </objectModel:ObservableCollection>
+        </userControls:SettingsLayout.Items>
+    </userControls:SettingsLayout>
+</UserControl>

@@ -1,0 +1,49 @@
+<Styles xmlns="https://github.com/avaloniaui" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Design.PreviewWith>
+        <WrapPanel HorizontalAlignment="Center"
+                   Background="{DynamicResource GlobalBackground}"
+                   Orientation="Horizontal">
+            <Border Width="100"
+                    Height="100"
+                    Classes="GradientCard" />
+        </WrapPanel>
+    </Design.PreviewWith>
+
+    <Style Selector="Border.Card">
+        <Setter Property="Padding" Value="20" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource GlobalBorderBrush}" />
+        <Setter Property="Background" Value="{DynamicResource GlobalCardBackground}" />
+    </Style>
+
+    <Style Selector="Border.GradientCard">
+        <Setter Property="Padding" Value="20" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource GlobalBorderBrush}" />
+        <Setter Property="Background">
+            <RadialGradientBrush Center="120%,-220%" GradientOrigin="120%,-220%" RadiusX="3" RadiusY="3">
+                <GradientStop Offset="0.4" Color="{DynamicResource GlobalPrimaryColor}" />
+                <GradientStop Offset="1" Color="Transparent" />
+            </RadialGradientBrush>
+        </Setter>
+        <Setter Property="Margin" Value="7" />
+    </Style>
+
+    <Style Selector="Border.ElevatedCard">
+        <Setter Property="Padding" Value="20" />
+        <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource GlobalBorderBrush}" />
+        <Setter Property="Background" Value="{DynamicResource GlobalBackground}" />
+        <Setter Property="Margin" Value="7" />
+        <Setter Property="BoxShadow" Value="{DynamicResource GlobalPopupShadow}" />
+    </Style>
+
+    <Style Selector="Border.Hoverable:pointerover">
+        <Setter Property="BoxShadow" Value="0 0 7 0 LightGray" />
+    </Style>
+</Styles>

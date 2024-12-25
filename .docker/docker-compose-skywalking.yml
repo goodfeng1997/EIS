@@ -1,0 +1,38 @@
+services:
+  skywalking-oap:
+    external_links:
+      - elasticsearch
+    image: apache/skywalking-oap-server:latest
+    container_name: skywalking-oap #容器名
+    restart: always
+    ports:
+      - 11800:11800 #上报端口
+      - 12800:12800 #ui读取端口
+    environment:
+      JAVA_OPTS: "-Xms512m -Xmx512m" #限制运行大小
+      SW_STORAGE: elasticsearch
+      SW_STORAGE_ES_CLUSTER_NODES: elasticsearch:9200
+      SW_TELEMETRY: prometheus
+      TZ: Asia/Shanghai
+    networks:
+      - eis-net
+
+  skywalking-ui:
+    image: apache/skywalking-ui:latest #版本号与oap一致
+    container_name: skywalking-ui #容器名
+    depends_on:
+      - skywalking-oap
+    links:
+      - skywalking-oap #与容器oap建立连接
+    restart: always
+    ports:
+      - 3380:8080 #3380ui界面
+    environment:
+      SW_OAP_ADDRESS: http://skywalking-oap:12800 #设置读取oap的端口
+      TZ: Asia/Shanghai
+    networks:
+      - eis-net
+
+networks:
+  eis-net:
+    external: true

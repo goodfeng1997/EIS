@@ -1,0 +1,6 @@
+@EIS.Auth_HostAddress = http://localhost:5289
+
+GET {{EIS.Auth_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

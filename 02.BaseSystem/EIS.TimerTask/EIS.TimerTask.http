@@ -1,0 +1,6 @@
+@EIS.TimerTask_HostAddress = http://localhost:5140
+
+GET {{EIS.TimerTask_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

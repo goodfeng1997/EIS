@@ -1,0 +1,20 @@
+services:
+  rabbitmq:
+    image: rabbitmq:latest
+    container_name: rabbitmq
+    restart: always
+    environment:
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "admin"
+    volumes:
+      - ./data/:/var/lib/rabbitmq/
+      - ./log:/var/log/rabbitmq/
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - eis-net
+
+networks:
+  eis-net:
+    external: true

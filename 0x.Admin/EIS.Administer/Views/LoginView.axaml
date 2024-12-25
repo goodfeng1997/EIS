@@ -1,0 +1,101 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:EIS.Administer.ViewModels"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:controls="clr-namespace:EIS.Theme.Controls;assembly=EIS.Theme"
+             xmlns:extensions="clr-namespace:EIS.Theme.Extensions;assembly=EIS.Theme"
+             xmlns:userControls="clr-namespace:EIS.Theme.Controls.UserControls;assembly=EIS.Theme"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             x:Class="EIS.Administer.Views.LoginView"
+             x:DataType="vm:LoginViewModel">
+    <Design.DataContext>
+        <vm:LoginViewModel />
+    </Design.DataContext>
+    <Grid>
+        <Border VerticalAlignment="Stretch" HorizontalAlignment="Stretch" BorderThickness="2" BorderBrush="White"
+                Margin="120,100"
+                CornerRadius="50">
+            <Grid RowDefinitions="100,*">
+                <TextBlock Text="企业一体化信息平台" Margin="100,40,0,0" FontFamily="优设标题黑" FontSize="36" FontWeight="Regular"
+                           VerticalAlignment="Top" HorizontalAlignment="Left" />
+                <TextBlock Grid.Row="0" Text="Enterprise information platform" Margin="100,90,0,0" FontFamily="优设标题圆"
+                           FontSize="20"
+                           FontWeight="Regular"
+                           VerticalAlignment="Top" HorizontalAlignment="Left" />
+                <Border Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100,120,0,100"
+                        CornerRadius="20"
+                        Width="350" Height="450">
+                    <Grid RowDefinitions="*,50">
+                        <controls:GlassCard Width="350" Margin="0,0,0,0">
+                            <userControls:BusyArea Name="BusySignIn"
+                                               BusyText="登录中..."
+                                               IsBusy="{Binding IsLoggingIn}">
+                                <StackPanel>
+                                    <avalonia:MaterialIcon Width="30"
+                                                           Height="30"
+                                                           Margin="10,0,10,5"
+                                                           HorizontalAlignment="Center"
+                                                           Foreground="{DynamicResource GlobalPrimaryColor}"
+                                                           Kind="MicrosoftEdge" />
+                                    <TextBlock Margin="0,5,0,27"
+                                               HorizontalAlignment="Center"
+                                               FontSize="18"
+                                               FontWeight="DemiBold"
+                                               Text="Sign-in to your account" />
+                                    <TextBlock Margin="6,0,0,3"
+                                               FontWeight="DemiBold"
+                                               Text="用户名" />
+                                    <TextBox extensions:TextBoxExtension.Prefix="" Watermark="Kesiau"
+                                             Text="{Binding UserName, Mode=TwoWay}" />
+                                    <TextBlock Margin="6,18,0,3"
+                                               FontWeight="DemiBold"
+                                               Text="密码" />
+                                    <TextBox Name="PasswordTextBox" Watermark="*******"
+                                             Text="{Binding PassWord, Mode=TwoWay}"
+                                             Margin="0,0,0,25"
+                                             extensions:TextBoxExtension.AddDeleteButton="True"
+                                             PasswordChar="*" />
+                                </StackPanel>
+                            </userControls:BusyArea>
+                        </controls:GlassCard>
+                        <Button Grid.Row="0" Grid.RowSpan="2" Name="ButtonSignIn"
+                                Width="160"
+                                Height="40"
+                                Margin="0,0,0,30"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                extensions:ButtonExtension.ShowProgress="{Binding IsLoggingIn}"
+                                Classes="Flat Rounded"
+                                Command="{Binding LoginCommand}"
+                                FontWeight="DemiBold">
+                            登 录
+                        </Button>
+                    </Grid>
+                </Border>
+
+                <!-- <Image Grid.Row="0" Grid.RowSpan="2" Source="/Assets/Image/main_app.png" Stretch="Uniform" -->
+                <!--        HorizontalAlignment="Right" VerticalAlignment="Center" Margin="100,100,0,100" /> -->
+                <Canvas Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Right">
+                    <Ellipse Width='400' Height='400' Canvas.Right="0" Canvas.Top="-50">
+                        <Ellipse.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Offset="0" Color="#DEEEFFFF" />
+                                <GradientStop Offset="1" Color="#C9D3FFFF" />
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Ellipse Width='600' Height='600' Canvas.Right="200" Canvas.Top="500">
+                        <Ellipse.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Offset="0" Color="#DEEEFFFF" />
+                                <GradientStop Offset="1" Color="#C9D3FFFF" />
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Canvas>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+
+  mysql:
+    # mysql 数据库
+    image: 'mysql/mysql-server:latest'
+    container_name: 'mysql'
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      disable: true
+    restart: always
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --lower-case-table-names=1
+    environment:
+      #环境变量
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_ROOT_PASSWORD: admin@123
+    ports:
+      - "3306:3306"
+    networks:
+      - eis-net
+
+networks:
+  eis-net:
+    external: true

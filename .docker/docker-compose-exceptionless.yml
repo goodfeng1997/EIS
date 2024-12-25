@@ -1,0 +1,93 @@
+version: '3.7'
+
+services:
+  app:
+    external_links:
+      - elasticsearch
+      - redis
+    image: exceptionless/app:latest
+    container_name: 'exceptionless-app'
+    restart: always
+    environment:
+      EX_AppMode: Production
+      EX_ConnectionStrings__Cache: provider=redis
+      EX_ConnectionStrings__Elasticsearch: server=http://elasticsearch:9200
+      EX_ConnectionStrings__MessageBus: provider=redis
+      EX_ConnectionStrings__Queue: provider=redis
+      EX_ConnectionStrings__Redis: server=redis,abortConnect=false,password=admin@123
+      EX_ConnectionStrings__Storage: provider=folder;path=/app/storage
+      ASPNETCORE_URLS: http://+
+      EX_RunJobsInProcess: 'false'
+    ports:
+      - "4000:80"
+    volumes:
+      - appdata:/app/storage
+    networks:
+      - eis-net
+      
+  jobs:
+    external_links:
+      - redis:redis
+    depends_on:
+      - app
+    image: exceptionless/job:latest
+    container_name: 'exceptionless-job'
+    restart: always
+    environment:
+      EX_AppMode: Production
+      EX_BaseURL: http://app:4000
+      EX_ConnectionStrings__Cache: provider=redis
+      EX_ConnectionStrings__Elasticsearch: server=http://elasticsearch:9200
+      EX_ConnectionStrings__MessageBus: provider=redis
+      EX_ConnectionStrings__Queue: provider=redis
+      EX_ConnectionStrings__Redis: server=redis,abortConnect=false,password=admin@123
+      EX_ConnectionStrings__Storage: provider=folder;path=/app/storage
+    volumes:
+      - appdata:/app/storage
+    networks:
+      - eis-net
+
+#  api:
+#    external_links:
+#      - elasticsearch:elasticsearch
+#      - redis:redis
+#    image: exceptionless/api:latest
+#    container_name: 'exceptionless-api'
+#    restart: always
+#    environment:
+#      EX_AppMode: Production
+#      EX_BaseURL: http://ui:4000
+#      EX_ConnectionStrings__Cache: provider=redis
+#      EX_ConnectionStrings__Elasticsearch: server=http://elasticsearch:9200
+#      EX_ConnectionStrings__MessageBus: provider=redis
+#      EX_ConnectionStrings__Queue: provider=redis
+#      EX_ConnectionStrings__Redis: server=redis,abortConnect=false,password=admin@123
+#      EX_ConnectionStrings__Storage: provider=folder;path=/app/storage
+#      EX_RunJobsInProcess: 'false'
+#    ports:
+#      - "4010:80"
+#    volumes:
+#      - appdata:/app/storage
+#    networks:
+#      - eis-net
+
+#  ui:
+#    image: exceptionless/ui:latest
+#    container_name: 'exceptionless-ui'
+#    environment:
+#      AppMode: Production
+#      EX_ApiUrl: http://api:4010
+#    ports:
+#      - "4000:80"
+#    networks:
+#      - eis-net
+
+volumes:
+  appdata:
+    driver: local
+
+networks:
+  eis-net:
+    external: true
+    
+

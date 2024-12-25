@@ -1,0 +1,115 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.AvaloniaEdit" Version="11.0.6" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="11.1.1" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.1.1" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="11.1.1" />
+    <PackageReference Include="Avalonia.Skia" Version="11.1.1" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.1.1" />
+	<PackageReference Include="Quick.AvaloniaFonts.SourceHanSansCN" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaXaml Update="Style\TextBoxStyle.axaml">
+      <SubType>Designer</SubType>
+    </AvaloniaXaml>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Controls\CodeControl.axaml~" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\LoginView.axaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EIS.Infrastructure\EIS.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Controls\SideMenuControl.axaml.cs">
+      <DependentUpon>SideMenuControl.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\GlassCardControl.axaml.cs">
+      <DependentUpon>GlassCard.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\TransitioningContentControl.axaml.cs">
+      <DependentUpon>GlobalTransitioningContentControl.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Views\ThemeView.axaml.cs">
+      <DependentUpon>ThemeView.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GlobalTheme.axaml.cs">
+      <DependentUpon>GlobalTheme.axaml.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\ThemeWindow.axaml.cs">
+      <DependentUpon>GlobalWindow.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\ThemeHost.axaml.cs">
+      <DependentUpon>GlobalHost.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\ThemeToast.axaml.cs">
+      <DependentUpon>GlobalToast.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\UserControls\BusyArea.axaml.cs">
+      <DependentUpon>BusyArea.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\UserControls\CircleProgressBar.axaml.cs">
+      <DependentUpon>CircleProgressBar.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\UserControls\GroupBox.axaml.cs">
+      <DependentUpon>GroupBox.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\UserControls\Loading.axaml.cs">
+      <DependentUpon>Loading.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\UserControls\MessageBox.axaml.cs">
+      <DependentUpon>MessageBox.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\UserControls\SettingsLayout.axaml.cs">
+      <DependentUpon>SettingsLayout.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\UserControls\TextEraserButton.axaml.cs">
+      <DependentUpon>TextEraserButton.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\UserControls\WaveProgress.axaml.cs">
+      <DependentUpon>WaveProgress.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Base\Font\Quicksand-Bold.ttf" />
+    <AvaloniaResource Include="Base\Font\Quicksand-Bold.ttf" />
+    <None Remove="Base\Font\Quicksand-Light.ttf" />
+    <AvaloniaResource Include="Base\Font\Quicksand-Light.ttf" />
+    <None Remove="Base\Font\Quicksand-Medium.ttf" />
+    <AvaloniaResource Include="Base\Font\Quicksand-Medium.ttf" />
+    <None Remove="Base\Font\Quicksand-Regular.ttf" />
+    <AvaloniaResource Include="Base\Font\Quicksand-Regular.ttf" />
+    <None Remove="Base\Font\Quicksand-SemiBold.ttf" />
+    <AvaloniaResource Include="Base\Font\Quicksand-SemiBold.ttf" />
+    <None Remove="Base\Font\Roboto-Medium.ttf" />
+    <AvaloniaResource Include="Base\Font\Roboto-Medium.ttf" />
+    <None Remove="Base\Font\Roboto-Regular.ttf" />
+    <AvaloniaResource Include="Base\Font\Roboto-Regular.ttf" />
+  </ItemGroup>
+
+</Project>

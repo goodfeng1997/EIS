@@ -1,0 +1,6 @@
+@EIS.PLM_HostAddress = http://localhost:5166
+
+GET {{EIS.PLM_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

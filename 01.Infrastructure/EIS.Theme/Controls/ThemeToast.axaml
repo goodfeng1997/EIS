@@ -1,0 +1,89 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:EIS.Theme.Controls">
+   <Design.PreviewWith>
+       <controls:ThemeToast Title="titre" Content="message"></controls:ThemeToast>
+   </Design.PreviewWith>
+    <ControlTheme x:Key="GlobalToastTheme" TargetType="controls:ThemeToast">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                 
+                    <Border Name="PART_ToastCard"
+                            Width="300" 
+                            Margin="40,5,30,10"
+                            Padding="0" BorderThickness="1" BorderBrush="{DynamicResource GlobalBorderBrush}"
+                            BoxShadow="{DynamicResource GlobalPopupShadow}"
+                            Background="{DynamicResource GlobalCardBackground}"
+                            CornerRadius="15">
+                    <Border CornerRadius="15" ClipToBounds="True">
+                    <Panel>
+                        <Panel IsVisible="{DynamicResource IsDark}">
+                            <Panel Margin="0">
+                                <Panel.Background>
+                                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+                                        <GradientStop Color="{DynamicResource GlobalAccentColor5}" Offset="0"></GradientStop>
+                                        <GradientStop Color="{DynamicResource GlobalPrimaryColor10}" Offset="1"></GradientStop>
+
+                                    </LinearGradientBrush>
+                                </Panel.Background>
+                            </Panel>
+                        </Panel>
+                        
+                        <Panel IsVisible="{DynamicResource IsLight}">
+                            <Panel Margin="0">
+                                <Panel.Background>
+                                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+                                        <GradientStop Color="{DynamicResource GlobalAccentColor3}" Offset="0"></GradientStop>
+                                        <GradientStop Color="{DynamicResource GlobalPrimaryColor3}" Offset="1"></GradientStop>
+
+                                    </LinearGradientBrush>
+                                </Panel.Background>
+                            </Panel>
+                            
+                        </Panel>
+
+                      
+                        <Panel Margin="20, 22">
+                        
+                        <DockPanel Margin="0,-7" LastChildFill="True">
+                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                               <ContentPresenter Margin="12,0,0,0"
+                                       FontSize="15"
+                                       FontWeight="DemiBold"
+                                       Foreground="{DynamicResource GlobalText}"
+                                       Content="{TemplateBinding Title}" />
+                        </StackPanel>
+                            <Button Name="ButtonAction" FontSize="14" Padding="14,6" DockPanel.Dock="Bottom" IsVisible="{TemplateBinding ShowActionButton}" HorizontalAlignment="Right" Margin="0,14,0,0" Content="{TemplateBinding ActionButtonContent}">
+                            </Button>
+                        <ContentPresenter Margin="12,10,0,0"
+                                          Content="{TemplateBinding Content}"
+                                          Foreground="{DynamicResource GlobalText}"
+                                          TextWrapping="Wrap" />
+                        
+                    </DockPanel>
+                    </Panel>
+                    </Panel>
+                    </Border>
+                </Border>
+                    <Border  BoxShadow="{DynamicResource GlobalSmallPopupShadow}"
+                             Margin="22,0,0,0" Background="{DynamicResource GlobalCardBackground}" Width="35" Height="35" CornerRadius="35" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Border CornerRadius="35" ClipToBounds="True">
+                        <Panel>
+                            <Panel  Opacity="1" Background="{TemplateBinding Foreground}"></Panel>
+                           <PathIcon Width="15" Margin="0,0,0,0"
+                                      Height="15" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                      Data="{TemplateBinding Icon}"
+                                      Foreground="White" />
+
+                        </Panel>
+                        </Border>
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type controls:ThemeToast}"
+                  BasedOn="{StaticResource GlobalToastTheme}"
+                  TargetType="controls:ThemeToast" />
+</ResourceDictionary>

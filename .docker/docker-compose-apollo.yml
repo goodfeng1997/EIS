@@ -1,0 +1,60 @@
+version: "3"
+
+services:
+  apollo-configservice:
+    ##容器服务名
+    container_name: apollo-configservice
+    image: apolloconfig/apollo-configservice:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/tmp/logs:/opt/logs" ##将/tmp/logs目录挂载到宿主机的/opt/logs方便在宿主机上查看日志
+    environment:
+      - spring_datasource_url=jdbc:mysql://mysql:3306/ApolloConfigDB?characterEncoding=utf8
+      - spring_datasource_username=root
+      - spring_datasource_password=admin@123
+    networks:
+      - eis-net
+    restart: always
+
+  apollo-adminservice:
+    container_name: apollo-adminservice
+    image: apolloconfig/apollo-adminservice:latest
+    ports:
+      - "8090:8090"
+    depends_on:
+      - apollo-configservice
+    volumes:
+      - "/tmp/logs:/opt/logs"
+    environment:
+      - spring_datasource_url=jdbc:mysql://mysql:3306/ApolloConfigDB?characterEncoding=utf8
+      - spring_datasource_username=root
+      - spring_datasource_password=admin@123
+      - eruka-instance-ip-address=http://apollo-configservice
+      - eruka-instance-port=8080
+    networks:
+      - eis-net
+    restart: always
+
+  apollo-portal:
+    container_name: apollo-portal
+    image: apolloconfig/apollo-portal:latest
+    ports:
+      - "8070:8070"
+    depends_on:
+      - apollo-adminservice
+    volumes:
+      - "/tmp/logs:/opt/logs"
+    environment:
+      - APOLLO_PORTAL_ENVS=dev
+      - DEV_META=http://apollo-configservice:8080
+      - spring_datasource_url=jdbc:mysql://mysql:3306/ApolloPortalDB?characterEncoding=utf8
+      - spring_datasource_username=root
+      - spring_datasource_password=admin@123
+    networks:
+      - eis-net
+    restart: always
+
+networks:
+  eis-net:
+    external: true

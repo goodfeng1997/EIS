@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>warnings</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="9.0.0" />
+      <PackageReference Include="Com.Ctrip.Framework.Apollo.Configuration" Version="2.10.2" />
+      <PackageReference Include="Dapper" Version="2.1.35" />
+      <PackageReference Include="FreeSql.Cloud" Version="1.9.1" />
+      <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+      <PackageReference Include="MySqlConnector" Version="2.3.7" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <PackageReference Include="Npgsql" Version="8.0.4" />
+      <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="23.6.0" />
+      <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+      <PackageReference Include="Serilog.Sinks.Exceptionless" Version="4.0.0" />
+      <PackageReference Include="System.Data.SQLite.Core" Version="1.0.119" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="ExpressionToSql\Diagnostics\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="ExpressionToSql\Diagnostics\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="ExpressionToSql\Diagnostics\**" />
+    </ItemGroup>
+
+</Project>

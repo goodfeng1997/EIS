@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EIS.Base</name>
+    </assembly>
+    <members>
+        <member name="T:EIS.Base.Controllers.UserController">
+            <summary>
+            用户管理
+            </summary>
+        </member>
+        <member name="M:EIS.Base.Controllers.UserController.#ctor(System.Data.IDbConnection,EIS.Core.Services.IAppDbService,Microsoft.Extensions.Logging.ILogger{EIS.Base.Controllers.UserController})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="dbConnection"></param>
+            <param name="appDbService"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:EIS.Base.Controllers.UserController.Get">
+            <summary>
+            初始化请求
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

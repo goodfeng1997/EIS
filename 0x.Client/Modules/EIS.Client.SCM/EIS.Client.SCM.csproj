@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="ViewModels\" />
+      <Folder Include="Views\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\01.Infrastructure\EIS.Infrastructure\EIS.Infrastructure.csproj" />
+      <ProjectReference Include="..\..\..\01.Infrastructure\EIS.Theme\EIS.Theme.csproj" />
+    </ItemGroup>
+
+</Project>

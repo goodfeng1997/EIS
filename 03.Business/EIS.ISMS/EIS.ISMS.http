@@ -1,0 +1,6 @@
+@EIS.ISMS_HostAddress = http://localhost:5130
+
+GET {{EIS.ISMS_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

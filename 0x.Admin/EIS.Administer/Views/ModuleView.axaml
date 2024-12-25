@@ -1,0 +1,43 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:EIS.Administer.ViewModels"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:regions="http://prismlibrary.com/"
+             xmlns:control="clr-namespace:EIS.Theme.Controls;assembly=EIS.Theme"
+             xmlns:content="clr-namespace:EIS.Theme.Content;assembly=EIS.Theme"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             x:Class="EIS.Administer.Views.ModuleView"
+             x:DataType="vm:ModuleViewModel">
+    <Design.DataContext>
+        <vm:ModuleViewModel />
+    </Design.DataContext>
+    <Grid>
+        <DockPanel>
+            <control:SideMenuControl DockPanel.Dock="Left" ItemsSource="{Binding MenuItems}" SelectedItem="{Binding ActiveMenu}" >
+                <control:SideMenuControl.ItemTemplate>
+                    <DataTemplate>
+                        <control:SideMenuItemControl Header="{Binding DisplayName}">
+                            <control:SideMenuItemControl.Icon>
+                                <avalonia:MaterialIcon Kind="{Binding Icon}" />
+                            </control:SideMenuItemControl.Icon>
+                        </control:SideMenuItemControl>
+                    </DataTemplate>
+                </control:SideMenuControl.ItemTemplate>
+            </control:SideMenuControl>
+            <ContentControl DockPanel.Dock="Right" HorizontalAlignment="Stretch"
+                            Name="NavigateRegion"
+                            regions:RegionManager.RegionName="ContentRegionContent"/>
+        </DockPanel>
+
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                Margin="0,0,10,10"
+                Command="{Binding OpenMenuCommand}">
+            <PathIcon
+                Width="25" Height="25"
+                Data="{x:Static content:IconContent.Star}">
+            </PathIcon>
+        </Button>
+    </Grid>
+</UserControl>

@@ -1,0 +1,14 @@
+services:
+  
+  adminer:
+    image: adminer
+    container_name: docker-adminer
+    restart: always
+    ports:
+      - "8010:8010"
+    networks:
+      - eis-net
+
+networks:
+  eis-net:
+    external: true

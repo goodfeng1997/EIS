@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EIS.Auth</name>
+    </assembly>
+    <members>
+        <member name="T:EIS.Auth.Controllers.AuthController">
+            <summary>
+            权限管理
+            </summary>
+        </member>
+        <member name="M:EIS.Auth.Controllers.AuthController.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:EIS.Auth.Controllers.AuthController.Login(EIS.Model.Dto.LoginRequestParam)">
+            <summary>
+            登录接口
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EIS.Auth.ServiceExtensions.IdentityCacheServer">
+            <summary>
+            IdentityServer4缓存服务
+            </summary>
+        </member>
+        <member name="M:EIS.Auth.ServiceExtensions.IdentityCacheServer.GetApiResources(System.Data.IDbConnection)">
+            <summary>
+            获取系统Api资源
+            </summary>
+            <param name="dbConnection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EIS.Auth.ServiceExtensions.IdentityCacheServer.GetApiScopes(System.Data.IDbConnection)">
+            <summary>
+            获取系统Api范围
+            </summary>
+            <param name="dbConnection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EIS.Auth.ServiceExtensions.IdentityCacheServer.GetClients(System.Data.IDbConnection)">
+            <summary>
+            获取系统客户端
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EIS.Auth.ServiceExtensions.IdentityCacheServer.GetIdentityResources">
+            <summary>
+            获取鉴权资源
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EIS.Auth.ServiceExtensions.ProfileService">
+            <summary>
+            IdentityServer4 用户信息获取服务
+            </summary>
+        </member>
+        <member name="M:EIS.Auth.ServiceExtensions.ProfileService.#ctor(Microsoft.Extensions.Logging.ILogger{EIS.Auth.ServiceExtensions.ProfileService},EIS.Core.Base.DataBaseLinq.IDbService)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="logger"></param>
+            <param name="dbService"></param>
+        </member>
+        <member name="M:EIS.Auth.ServiceExtensions.ProfileService.GetProfileDataAsync(IdentityServer4.Models.ProfileDataRequestContext)">
+            <summary>
+            获取用户信息
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:EIS.Auth.ServiceExtensions.ProfileService.IsActiveAsync(IdentityServer4.Models.IsActiveContext)">
+            <summary>
+            验证用户Claims的正确性(用户类型与客户端是否匹配)
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:EIS.Auth.ServiceExtensions.ResourceOwnerPasswordValidator">
+            <summary>
+            Identity Server4 资源所有者验证
+            </summary>
+        </member>
+        <member name="M:EIS.Auth.ServiceExtensions.ResourceOwnerPasswordValidator.#ctor(System.Data.IDbConnection,EIS.Core.Services.IAppDbService,Microsoft.Extensions.Logging.ILogger{EIS.Auth.ServiceExtensions.ResourceOwnerPasswordValidator})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="dbConnection"></param>
+            <param name="appDbService"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:EIS.Auth.ServiceExtensions.ResourceOwnerPasswordValidator.ValidateAsync(IdentityServer4.Validation.ResourceOwnerPasswordValidationContext)">
+            <summary>
+            验证用户信息（在请求ACCESS_TOKEN时调用）
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:EIS.Auth.Store.CustomClientStore">
+            <summary>
+            自定义客户端
+            </summary>
+        </member>
+        <member name="M:EIS.Auth.Store.CustomClientStore.#ctor(EIS.Core.Base.DataBaseLinq.IDbService)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="dbService"></param>
+        </member>
+        <member name="M:EIS.Auth.Store.CustomClientStore.FindClientByIdAsync(System.String)">
+            <summary>
+            获取Client
+            </summary>
+            <param name="clientId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EIS.Auth.Store.CustomResourceStore">
+            <summary>
+            自定义资源存储
+            </summary>
+        </member>
+        <member name="M:EIS.Auth.Store.CustomResourceStore.#ctor(EIS.Core.Base.DataBaseLinq.IDbService)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="dbService"></param>
+        </member>
+        <member name="M:EIS.Auth.Store.CustomResourceStore.FindIdentityResourcesByScopeNameAsync(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            获取IdentityResources
+            </summary>
+            <param name="scopeNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EIS.Auth.Store.CustomResourceStore.FindApiScopesByNameAsync(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            获取ApiScopes
+            </summary>
+            <param name="scopeNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EIS.Auth.Store.CustomResourceStore.FindApiResourcesByScopeNameAsync(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            获取ApiResource
+            </summary>
+            <param name="scopeNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EIS.Auth.Store.CustomResourceStore.FindApiResourcesByNameAsync(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            获取ApiResource
+            </summary>
+            <param name="apiResourceNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EIS.Auth.Store.CustomResourceStore.GetAllResourcesAsync">
+            <summary>
+            获取所有资源
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

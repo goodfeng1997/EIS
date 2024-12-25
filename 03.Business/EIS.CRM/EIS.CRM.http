@@ -1,0 +1,6 @@
+@EIS.CRM_HostAddress = http://localhost:5177
+
+GET {{EIS.CRM_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

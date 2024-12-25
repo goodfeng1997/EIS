@@ -1,0 +1,16 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="EIS.Administer.App"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:vm="using:EIS.Infrastructure.ViewModels"
+             xmlns:theme="clr-namespace:EIS.Theme;assembly=EIS.Theme"
+             RequestedThemeVariant="Default">
+    <Application.DataTemplates>
+        <vm:ViewLocator/>
+    </Application.DataTemplates>
+    <Application.Styles>
+        <FluentTheme />
+        <avalonia:MaterialIconStyles />
+        <theme:GlobalTheme ThemeColor="Blue"/>
+    </Application.Styles>
+</Application>

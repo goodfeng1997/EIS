@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+	<None Remove="Assets\backgroud.png" />
+	<None Remove="Assets\Image\main_app.png" />
+  </ItemGroup>
+
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Modules\EIS.Client.BI\EIS.Client.BI.csproj" />
+    <ProjectReference Include="..\Modules\EIS.Client.CRM\EIS.Client.CRM.csproj" />
+    <ProjectReference Include="..\Modules\EIS.Client.ERP\EIS.Client.ERP.csproj" />
+    <ProjectReference Include="..\Modules\EIS.Client.HR\EIS.Client.HR.csproj" />
+    <ProjectReference Include="..\Modules\EIS.Client.ISMS\EIS.Client.ISMS.csproj" />
+    <ProjectReference Include="..\Modules\EIS.Client.KMS\EIS.Client.KMS.csproj" />
+    <ProjectReference Include="..\Modules\EIS.Client.OA\EIS.Client.OA.csproj" />
+    <ProjectReference Include="..\Modules\EIS.Client.PLM\EIS.Client.PLM.csproj" />
+    <ProjectReference Include="..\Modules\EIS.Client.SCM\EIS.Client.SCM.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,44 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             x:Class="EIS.Client.Views.ModuleView"
+             xmlns:local="using:EIS.Client.ViewModels"
+             x:DataType="local:ModuleViewModel"
+             Background="#ddecff">
+    <Design.DataContext>
+        <local:ModuleViewModel />
+    </Design.DataContext>
+    <UserControl.Styles>
+        <Style Selector="Button.module">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="阿里妈妈数黑体"/>
+            <Setter Property="Foreground" Value="#303133"/>
+            <Setter Property="Background" Value="#FAAD14"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="40,20"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="150"/>
+        </Style>
+    </UserControl.Styles>
+    <Border CornerRadius="50" Margin="100"
+            VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+            Background="White">
+        <ScrollViewer>
+            <WrapPanel Margin="50,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Classes="module" Content="ERP" CornerRadius="20"/>
+                <Button Classes="module" Content="HR" CornerRadius="20"/>
+                <Button Classes="module" Content="OA" CornerRadius="20"/>
+                <Button Classes="module" Content="PLM" CornerRadius="20"/>
+                <Button Classes="module" Content="KMS" CornerRadius="20"/>
+                <Button Classes="module" Content="CRM" CornerRadius="20"/>
+                <Button Classes="module" Content="SCM" CornerRadius="20"/>
+                <Button Classes="module" Content="ISMS" CornerRadius="20"/>
+                <Button Classes="module" Content="BI" CornerRadius="20"/>
+            </WrapPanel>
+        </ScrollViewer>
+    </Border>
+</UserControl>

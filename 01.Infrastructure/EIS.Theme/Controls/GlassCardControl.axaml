@@ -1,0 +1,90 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:EIS.Theme.Controls">
+    <ControlTheme x:Key="GlobalGlassCardStyle" TargetType="local:GlassCard">
+        <Setter Property="BorderBrush" Value="{DynamicResource GlassBorderBrush}" />
+        <Setter Property="Padding" Value="20" />
+        <Setter Property="Template">
+            <ControlTemplate>
+            
+                <Panel Name="RootPanel" Opacity="0">
+                    <Border Name="PART_BorderCard" RenderTransformOrigin="50%,50%"
+                            Background="{DynamicResource GlobalGlassCardBackground}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            ClipToBounds="{TemplateBinding ClipToBounds}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Opacity="{DynamicResource GlassOpacity}">
+                        
+                        <Border.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Width"
+                                                             Duration="0:0:0.5"
+                                                             Easing="QuadraticEaseOut"/>
+                                <DoubleTransition Property="Height"
+                                                             Duration="0:0:0.5"
+                                                             Easing="QuadraticEaseOut"/>
+                            </Transitions>
+                        </Border.Transitions>
+                        
+                        <Border.Transitions>
+                            <Transitions>
+                                <BrushTransition Property="Background" Duration="0:0:0.15" />
+                                <BrushTransition Property="BorderBrush" Duration="0:0:0.15" />
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.15" />
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
+                    <Border Name="PART_ClipBorder"
+                            Background="Transparent"
+                            BorderBrush="{DynamicResource GlobalPrimaryColor0}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            ClipToBounds="{TemplateBinding ClipToBounds}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <Border.Transitions>
+                            <Transitions>
+                                <BrushTransition Property="BorderBrush" Duration="0:0:0.15" />
+                            </Transitions>
+                        </Border.Transitions>
+                        <ContentPresenter Name="PART_CP" Margin="{TemplateBinding Padding}" Content="{TemplateBinding Content}" />
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^.Primary /template/ Border#PART_ClipBorder">
+            <Setter Property="BorderBrush" Value="{DynamicResource GlobalAccentColor0}" />
+        </Style>
+        <Style Selector="^[IsOpaque=True] /template/ Border#PART_BorderCard">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="Background" Value="{DynamicResource GlobalGlassCardOpaqueBackground}" />
+        </Style>
+        <Style Selector="^[IsInteractive=True]:pointerover /template/ Border#PART_ClipBorder">
+            <Setter Property="BorderBrush" Value="{DynamicResource GlobalPrimaryColor50}" />
+        </Style>
+        <Style Selector="^.Primary[IsInteractive=True]:pointerover /template/ Border#PART_ClipBorder">
+            <Setter Property="BorderBrush" Value="{DynamicResource GlobalAccentColor50}" />
+        </Style>
+        <Style Selector="^[IsInteractive=True]:pointerdown /template/ Border#PART_ClipBorder">
+            <Setter Property="BorderBrush" Value="{DynamicResource GlobalPrimaryColor}" />
+        </Style>
+        <Style Selector="^.Primary[IsInteractive=True]:pointerdown /template/ Border#PART_ClipBorder">
+            <Setter Property="BorderBrush" Value="{DynamicResource GlobalAccentColor}" />
+        </Style>
+        <Style Selector="^.Accent /template/ Border#PART_BorderCard">
+            <Setter Property="Background" Value="{DynamicResource GlobalAccentColor25}" />
+        </Style>
+        <Style Selector="^.Primary /template/ Border#PART_BorderCard">
+            <Setter Property="Background" Value="{DynamicResource GlobalPrimaryColor25}" />
+        </Style>
+        
+        <Style Selector="^[IsVisible=True] /template/ Panel#RootPanel">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+        <Style Selector="^[IsVisible=False] /template/ Panel#RootPanel">
+            <Setter Property="Opacity" Value="0" />
+        </Style>
+    </ControlTheme>
+    <ControlTheme x:Key="{x:Type local:GlassCard}"
+                  BasedOn="{StaticResource GlobalGlassCardStyle}"
+                  TargetType="local:GlassCard" />
+</ResourceDictionary>
